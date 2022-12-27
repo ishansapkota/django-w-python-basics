@@ -20,32 +20,37 @@
   </body>
 </html> -->
 
+{% extends "base.html" %}
 {%load static%}
+
 
 <html>
   <head>
-    <title>{% block title %} HOME {% end title %}</title>
-    <link href="{% static'css/static.css' %}" rel="stylesheet">
+    <title>{% block title %} HOME {% endblock %}</title>
   </head>
   <body>
     <header>
       <h1>My Page</h1>
-      <!-- <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-      </nav> -->
     </header>
     <main>
-      <h2>Welcome to My Page</h2>
-      <div id="content">
-        {% block content %}
-        {% endblock content %}
-      </div>
-      <div id="sidebar">
+      {% block body1 %}
+      <h1>Welcome to the HOME Page
+      </h1>
+              
+      {% endblock body1 %}
+      <!-- <div id="content">
+        
+      </div> -->
+      {% block content %}
+      <p> From here you can redirect yourself in the webpage to wherever you please</p>
+      {%endblock content %}
+      <!-- <div id="sidebar">
         <h2>My blog</h2>
         <p>This is my blog.</p>
-      </div>
+      </div> -->
+      {% block sidebar %}
+      <p>CARS CARS CARS</p>
+      {% endblock sidebar %}
     </main>
     <footer>Copyright 2022</footer>
   </body>

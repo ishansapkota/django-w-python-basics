@@ -80,6 +80,27 @@
 </html> -->
 
 
-{% extends "home.html" %}
+{% extends "base.html" %}
+{% load static %}
 
-{% block title %} ABOUT {% end block title %}
+{% block title %}
+About
+{% endblock title %}
+
+{% block body1 %}
+<h1>
+  WELCOME TO THE ABOUT PAGE
+</h1>
+{% endblock body1 %}
+
+{% block content %}
+This webpage belongs to the Sapkota Garage.
+{% endblock content %}
+
+{% block sidebar %}
+Here you can reserve yourself a place to park your cars.
+{% endblock sidebar %}
+
+{% block foot %}
+Copyright 2022.
+{% endblock foot %}

@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vehicle.views import home,about,create_vehicle #url wala ma first tyo views ma dekhaako function lai call 
-                                                    #garnu parcha
+from vehicle.views import home,about,create_vehicle,base #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',home),
-    path('about/',about),
-    path('vehicles/',create_vehicle)
+    path('',base,name = 'base'),
+    path('home/',home,name = 'home'),
+    path('about/',about,name = 'about'),
+    path('vehicles/',create_vehicle,name = 'vehicles')
 ]

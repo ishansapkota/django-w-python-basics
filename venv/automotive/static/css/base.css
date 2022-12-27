@@ -5,7 +5,7 @@ body {
   }
 
   header {
-    background-color: lightblue;
+    background-color: rgb(40, 176, 240);
     height: 100px;
     display: flex;
     align-items: center;
@@ -15,7 +15,7 @@ body {
 
   header h1 {
     margin: 0;
-    color: white;
+    color: rgb(2, 1, 1);
   }
 
   header nav {
@@ -23,7 +23,7 @@ body {
   }
 
   header nav a {
-    color: white;
+    color: rgb(3, 3, 3);
     text-decoration: none;
     margin: 0 10px;
   }
@@ -49,7 +49,7 @@ body {
   }
 
   footer {
-    background-color: lightgray;
+    background-color: rgb(54, 212, 240);
     height: 50px;
     display: flex;
     align-items: center;
