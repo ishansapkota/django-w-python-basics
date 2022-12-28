@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Vehicle
+from django import forms
 
 
 # Create your views here.
@@ -48,21 +49,27 @@ def create_vehicle(request):
  
 
 def list_vehicle(request):
-    
-
-    # if request.method == "POST":
-    #     print(request.POST)
-    #     model = request.POST['model']
-    #     brand = request.POST['brand']
-    #     type = request.POST['type']
-    #     manufactured_date = request.POST['manufactured_date']
-    #     vehicle = Vehicle(
-    #         model = model,
-    #         brand = brand,
-    #         type = type,
-    #         manufactured_date = manufactured_date
-    #     )
-    #     vehicle.save()
-
     if request.method == "GET":
-        return render(request,'list_vehicle.html')
+        context = {
+            'all_vehicles': Vehicle.objects.all()
+        }
+        return render(request,'list_vehicle.html',context)
+
+
+def vehicle_details(request,pk):
+    vehicle = Vehicle.objects.get(id=pk)
+    context = {
+            'vehicle' : vehicle
+        }
+
+    return render(request,'vehicle_details.html',context)
+
+def vehicle_delete(request,pk):
+    vehicle = Vehicle.objects.get(id=pk)
+    vehicle.delete()
+    return redirect('vehicles')
+
+def vehicle_update(request,pk):
+    vehicle = Vehicle.objects.get(pk = id)
+    form = Vehicle(request.POST ,isinstance=vehicle)
+    vehicle.save()

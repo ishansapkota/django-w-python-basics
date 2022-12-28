@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vehicle.views import home,about,create_vehicle,base,list_vehicle #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
+from vehicle.views import home,about,create_vehicle,base,list_vehicle,vehicle_details,vehicle_delete,vehicle_update #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +23,8 @@ urlpatterns = [
     path('home/',home,name = 'home'),
     path('about/',about,name = 'about'),
     path('vehicles/',list_vehicle,name = 'vehicles'),
-    path('vehicle/create_vehicle',create_vehicle,name = 'create_vehicle')
+    path('vehicles/create_vehicle',create_vehicle,name = 'create_vehicle'),
+    path('vehicles/<int:pk>',vehicle_details,name = 'vehicle_details'),
+    path('vehicle_delete/<int:pk>',vehicle_delete,name = 'vehicle_delete'),
+    path('vehicle_update/<int:pk>',vehicle_update, name = 'vehicle_update')
 ]
