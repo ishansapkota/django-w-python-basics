@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from vehicle.views import home,about,create_vehicle,base,list_vehicle,vehicle_details,vehicle_delete,vehicle_update #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
+from vehicle.views import home,about,create_vehicle,base,list_vehicle,vehicle_details,vehicle_delete,vehicle_update, CreateParts,DeleteParts,ListParts #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +28,10 @@ urlpatterns = [
     path('vehicles/create_vehicle',create_vehicle,name = 'create_vehicle'),
     path('vehicles/<int:pk>',vehicle_details,name = 'vehicle_details'),
     path('vehicle_delete/<int:pk>',vehicle_delete,name = 'vehicle_delete'),
-    path('vehicle_update/<int:pk>',vehicle_update, name = 'vehicle_update')
+    path('vehicles/vehicle_update/<int:pk>',vehicle_update, name = 'vehicle_update'),
+
+
+    path('parts/',CreateParts.as_view(),name = 'parts'),
+    path('parts_details/',ListParts.as_view(),name = 'parts_details'),
+    path('parts_delete/<int:pk>',DeleteParts.as_view(),name = 'parts_delete')
 ]

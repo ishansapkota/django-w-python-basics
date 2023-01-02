@@ -1,7 +1,12 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Vehicle
+from .models import Vehicle,Parts
 from django import forms
+from vehicle.forms import PartsForm
+from django.views import View
+from django.views.generic import DeleteView,ListView
+from django.urls import reverse_lazy
+
 
 
 # Create your views here.
@@ -73,3 +78,37 @@ def vehicle_update(request,pk):
     vehicle = Vehicle.objects.get(pk = id)
     form = Vehicle(request.POST ,isinstance=vehicle)
     vehicle.save()
+
+
+
+class CreateParts(View):
+    def get(self,request):
+        form = PartsForm()
+        context = {
+            'form': form
+        }
+        return render(request,'create_parts.html',context)
+        #return HttpResponse("this is where the parts html goes.")
+
+    def post(self,request):
+        form = PartsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('parts')
+        context = {
+            "form": form
+        }
+        return render(request,'create_parts.html',context)
+
+#list display garna ko laagi django ma ListView bhanney class nai huney raicha django.generic bhanney module ma
+
+class ListParts(ListView):
+    parts = Parts
+    template_name = 'parts_details.html'
+
+
+
+#deletion ko laagi chahi django ko generic module ma DeleteView bhanney class nai raicha so tei use gareko 
+class DeleteParts(DeleteView):
+    parts = Parts
+    template_name = 'base.html'
