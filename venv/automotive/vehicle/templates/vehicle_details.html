@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+VEHICLE DETAIL
+
+{% endblock %}
+
+{% block body1 %}
+
+<h1>{{ vehicle.brand }} {{ vehicle.model }}</h1>
+<h2>model : {{ vehicle.model }}</h2>
+<h3>brand : {{ vehicle.brand }}</h3>
+<h4>type : {{  vehicle.type }}</h4>
+<h5>manufactured_date : {{ vehicle.manufactured_date }}</h5>
+
+
+{% endblock body1 %}
+
+{% block content %}
+
+<form method = "POST" action = "{% url 'vehicle_delete' vehicle.id %}"> 
+  
+    <button type ="submit">Delete</button>
+</form>
+{% endblock content %}
+
+{% block content2 %}
+
+<form method = "POST" action = "{% url 'vehicle_update' vehicle.id %}">
+    
+
+    <button type="submit">Update</button>
+</form>
+
+{% endblock content2 %}

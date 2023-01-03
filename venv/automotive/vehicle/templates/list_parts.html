@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+LISTING THE SAVED PARTS
+{% endblock title %}
+
+
+{% block body1 %}
+
+    <p>{{ part.parts_name }} {{ part.parts_brand }}</p>
+    <p>name : {{ part.parts_name }}</p>
+    <p>brand : {{ part.parts_brand }}</p>
+    <p>manufactured_date : {{ part.parts_manufactured_date }}</p>
+<br>
+<br>
+
+
+
+{% endblock body1 %}

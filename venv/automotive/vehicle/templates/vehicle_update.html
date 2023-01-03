@@ -1,0 +1,43 @@
+<!-- {% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+
+VEHICLE UPDATE
+
+{% endblock %}
+
+<form method = "POST">
+      {% csrf_token %}
+        <p>MODEL</p>
+        <input type = "text" name = 'model' value = 'vehicle.brand'><br>
+        <p>BRAND</p> 
+        <input type="text" name = 'brand' value="vehicle.brand"><br>
+        <p>TYPE</p>
+        <input type = "text" name = 'type' value="vehicle.type"> <br>
+        <p>MANUFACTURED DATE</p>
+        <input type = 'text' name = 'manufactured_date' value="vehicle.manufactured_date"> {{ vehicle.manufactured_date }}<br>
+</form> -->
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+VEHICLE UPDATE
+{% endblock %}
+
+{% block content %}
+<form method="POST">
+    <!-- <input type='hidden' name='csrfmiddlewaretoken' value='{{ csrf_token }}'> -->
+  {% csrf_token %}
+  <p>MODEL</p>
+  <input type="text" name='model' value={{ vehicle.model }}><br>
+  <p>BRAND</p>
+  <input type="text" name='brand' value={{ vehicle.brand }}><br>
+  <p>TYPE</p>
+  <input type="text" name='type' value={{ vehicle.type }}> <br>
+  <p>MANUFACTURED DATE</p>
+  <input type='text' name='manufactured_date' value={{ vehicle.manufactured_date }}> {{ vehicle.manufactured_date }}<br>
+</form>
+
+{% endblock content %}

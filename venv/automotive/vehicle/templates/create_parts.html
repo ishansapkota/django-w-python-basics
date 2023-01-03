@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+PARTS
+{% endblock title %}
+
+{% block body1 %}
+ 
+<form action="{% url 'create_parts' %}" method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type = 'submit'> SUBMIT </button>
+</form>
+
+{% endblock body1 %}

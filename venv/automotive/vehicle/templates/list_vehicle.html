@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+LISTING THE SAVED VEHICLES
+{% endblock title %}
+
+{% block body1 %}
+<a href = "{% url 'create_vehicle' %}">create_vehicle</a>
+
+<br>
+<br>
+
+{% for vehicle in all_vehicles %}
+<a href = "{% url 'vehicle_details' vehicle.id %}">{{ vehicle.brand }} {{ vehicle.model }}</a>
+<p> model : {{ vehicle.model }}</p>
+<p> brand : {{ vehicle.brand }}</p>
+<p> type : {{ vehicle.type }}</p>
+<p> manufactured_date : {{ vehicle.manufactured_date }}</p>
+<br>
+<br>
+
+{% endfor %}
+
+{% endblock body1 %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+
+VEHICLE DETAIL
+
+{% endblock %}
+
+
+{% block body1 %}
+
+<a href="{% url 'create_parts' %}">Create Vehicle</a>
+
+{% endblock body1 %}
+
+
+
+{% block content %}
+
+{% for part in parts %}
+
+
+    <a href="{% url 'parts_list' part.id %}">{{ part.parts_name }} {{ part.parts_brand }}</a>
+    <p>name : {{ part.parts_name }}</p>
+    <p>brand : {{ part.parts_brand }}</p>
+    <p>manufactured_date : {{ part.parts_manufactured_date }}</p>
+
+{% endfor %}
+
+{% endblock content %}
+
