@@ -102,11 +102,15 @@ class CreateParts(View):
 
 #list display garna ko laagi django ma ListView bhanney class nai huney raicha django.generic bhanney module ma
 
-class ListParts(ListView):
-    parts = Parts
+class DetailsParts(ListView):
+    model = Parts
+    context_object_name = "parts"
     template_name = 'parts_details.html'
 
-
+class ListParts(ListView):
+    model = Parts
+    context_object_name = "parts"
+    template_name = 'list_parts.html'
 
 #deletion ko laagi chahi django ko generic module ma DeleteView bhanney class nai raicha so tei use gareko 
 class DeleteParts(DeleteView):
