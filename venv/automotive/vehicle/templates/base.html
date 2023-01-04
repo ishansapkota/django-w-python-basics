@@ -7,8 +7,13 @@
   </head>
   <body>
     <header>
-      <h1>My Page</h1>
-  
+      {% block user_login %}
+        <a href="{% url 'user_login' %}">Login</a>
+        <a href="">Register</a>
+
+
+      {% endblock user_login %}
+      
       <nav>
         <a href="{% url 'home' %}">Home</a>
         <a href="{% url 'about' %}">About</a>

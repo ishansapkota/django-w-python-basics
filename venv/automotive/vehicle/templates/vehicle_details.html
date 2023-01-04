@@ -21,7 +21,7 @@ VEHICLE DETAIL
 {% block content %}
 
 <form method = "POST" action = "{% url 'vehicle_delete' vehicle.id %}"> 
-  
+  {% csrf_token %}
     <button type ="submit">Delete</button>
 </form>
 {% endblock content %}
@@ -29,7 +29,7 @@ VEHICLE DETAIL
 {% block content2 %}
 
 <form method = "POST" action = "{% url 'vehicle_update' vehicle.id %}">
-    
+    {% csrf_token %}
 
     <button type="submit">Update</button>
 </form>

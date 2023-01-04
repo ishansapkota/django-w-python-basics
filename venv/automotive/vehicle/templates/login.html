@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block body1 %}
+<h1>
+  WELCOME TO THE LOGIN PAGE
+</h1>
+{% endblock body1 %}
+
+{% block content %}
+<form action="{% url 'user_login' %}" method = "post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type = 'submit'> SUBMIT </button>
+</form>
+{% endblock content %}
+
+{% block sidebar %}
+
+{% endblock sidebar %}
+
+{% block foot %}
+Copyright 2022.
+{% endblock foot %}

@@ -7,7 +7,7 @@ LISTING THE SAVED PARTS
 
 
 {% block body1 %}
-
+{% for part in parts %}
     <p>{{ part.parts_name }} {{ part.parts_brand }}</p>
     <p>name : {{ part.parts_name }}</p>
     <p>brand : {{ part.parts_brand }}</p>
@@ -16,5 +16,5 @@ LISTING THE SAVED PARTS
 <br>
 
 
-
+{% endfor %}
 {% endblock body1 %}

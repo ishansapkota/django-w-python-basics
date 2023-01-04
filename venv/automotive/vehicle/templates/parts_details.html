@@ -11,7 +11,7 @@ VEHICLE DETAIL
 
 {% block body1 %}
 
-<a href="{% url 'create_parts' %}">Create Vehicle</a>
+<a href="{% url 'create_parts' %}">Create Parts</a>
 
 {% endblock body1 %}
 
@@ -20,7 +20,6 @@ VEHICLE DETAIL
 {% block content %}
 
 {% for part in parts %}
-
 
     <a href="{% url 'parts_list' part.id %}">{{ part.parts_name }} {{ part.parts_brand }}</a>
     <p>name : {{ part.parts_name }}</p>
