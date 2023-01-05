@@ -1,29 +1,50 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login
-from .forms import LoginForm
+from .forms import LoginForm,UserChangeForm,UserCreationForm
 from django.http import HttpResponse
+from django.views import View
+from django.urls import reverse
+
 
 # Create your views here.
 
+# class RegistrationView(View):
 
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
+#     def get(self, request):
+#         context = {'form': UserCreationForm()}
+#         return render(request, 'users/register.html', context)
+
+#     def post(self, request, *args, **kwargs):
+#         form = UserCreationForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password1')
+#             user = authenticate(username = username, password = password)
+#             login(request, user)
+#             return redirect('home')
+#         context = {'form': form}
+#         return render(request, 'users/register.html', context)
+    
+
+
+
+
+
+class Login(View):
+    def get(self,request):
+        context = {
+            'form': LoginForm()
+        }
+        return render(request,'login.html',context)
+
+    def post(self,request):
+        form = LoginForm(request.POST,request = request)
         if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(username = cd['username'],password = cd['password'])
-            if user is not None:
-                if user.is_active:
-                    login(request,user)
-                    return HttpResponse("User authenticated successfully")
-                else: 
-                    return HttpResponse("User not active")
-        else:
-            return HttpResponse("Invalid login")
-    else:
-        form = LoginForm()
-        return render(request,'login.html',{'form':form})
+            form.login_user()
+            return render(request,'home')
+        context = {
+            'form':form
+        }
+        return render(request,'login.html',context)
 
-
-def user_register(request):
-    pass
