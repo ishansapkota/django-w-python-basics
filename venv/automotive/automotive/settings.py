@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vehicle',
-    'user',
+    'users',
 
 ]
 
@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'automotive.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'automotive',
+        'NAME': 'automotive1',
         'USER' : 'postgres',
         'PASSWORD' :'123',
         'HOST' : 'localhost',

@@ -1,5 +1,5 @@
 from django import forms
-from .models import User
+from .models import users
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm   #yo chahi user create garney bela use huney django ko provided forms haru ho 
 from django.contrib.auth import authenticate,login
 

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from vehicle.views import home,about,create_vehicle,base,list_vehicle,vehicle_details,vehicle_delete,vehicle_update, CreateParts,DeleteParts,ListParts,DetailsParts #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
-from user.views import Login
+from users.views import Login
 from django.conf import settings
 from django.conf.urls.static import static
 
