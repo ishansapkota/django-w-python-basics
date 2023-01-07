@@ -1,22 +1,17 @@
 from django import forms
-from .models import users
+from .models import User
 from django.contrib.auth.forms import UserCreationForm,UserChangeForm   #yo chahi user create garney bela use huney django ko provided forms haru ho 
 from django.contrib.auth import authenticate,login
 
 
 
-# class UserCreationForm(UserCreationForm):
+class UserCreationForm(UserCreationForm):
 
-#     is_superuser = forms.BooleanField()
-#     class Meta:
-#         model = User
-#         fields = ("username", "email", 'is_superuser')
+    is_superuser = forms.BooleanField()
+    class Meta:
+        model = User
+        fields = ("username", "email", 'is_superuser')
 
-# class UserChangeForm(UserChangeForm):
-
-#     class Meta:
-#         model = User
-#         fields = ("username", "email")
 
 
 class LoginForm(forms.Form):

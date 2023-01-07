@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from vehicle.views import home,about,create_vehicle,base,list_vehicle,vehicle_details,vehicle_delete,vehicle_update, CreateParts,DeleteParts,ListParts,DetailsParts #url wala ma first tyo views ma dekhaako function lai call #garnu parcha
-from users.views import Login
+from users.views import Login,RegistrationView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -37,6 +37,7 @@ urlpatterns = [
     path('parts_list/<int:pk>',ListParts.as_view(),name = 'parts_list'),
     path('parts_delete/<int:pk>',DeleteParts.as_view(),name = 'parts_delete'),
 
-    path('login/',Login.as_view(),name = 'user_login')
+    path('login/',Login.as_view(),name = 'user_login'),
+    path('user_register',RegistrationView.as_view(),name = 'user_register')
 
 ]

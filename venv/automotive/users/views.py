@@ -8,23 +8,23 @@ from django.urls import reverse
 
 # Create your views here.
 
-# class RegistrationView(View):
+class RegistrationView(View):
 
-#     def get(self, request):
-#         context = {'form': UserCreationForm()}
-#         return render(request, 'users/register.html', context)
+    def get(self, request):
+        context = {'form': UserCreationForm()}
+        return render(request, 'user_register.html', context)
 
-#     def post(self, request, *args, **kwargs):
-#         form = UserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             username = form.cleaned_data.get('username')
-#             password = form.cleaned_data.get('password1')
-#             user = authenticate(username = username, password = password)
-#             login(request, user)
-#             return redirect('home')
-#         context = {'form': form}
-#         return render(request, 'users/register.html', context)
+    def post(self, request, *args, **kwargs):
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(username = username, password = password)
+            login(request, user)
+            return redirect('home')
+        context = {'form': form}
+        return render(request, 'user_register.html', context)
     
 
 

@@ -40,6 +40,8 @@ INSTALLED_APPS = [
 
 ]
 
+AUTH_USER_MODEL = "users.User" #this should be of the form "install_gareko_app_ko_name.models.py_ko_class_ko_name"
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
